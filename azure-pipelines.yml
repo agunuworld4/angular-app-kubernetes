@@ -52,10 +52,10 @@ stages:
         artifactName: 'manifests'
         itemPattern: '**/*.yaml'
         targetPath: '$(System.ArtifactsDirectory)'
-    # - task: KubernetesManifest@0
-    #   inputs:
-    #     action: 'deploy'
-    #     kubernetesServiceConnection: 'azure-kubernetes-connection'
-    #     namespace: 'default'
-    #     manifests: '$(System.ArtifactsDirectory)/configuration/kubernetes/deployment.yaml'
-    #     containers: 'in28min/currency-exchange-devops:$(tag)'
+    - task: KubernetesManifest@0
+      inputs:
+        action: 'deploy'
+        kubernetesServiceConnection: 'azure-kubernetes-deployment-connetion'
+        namespace: 'default'
+        manifests: '$(System.ArtifactsDirectory)/deployment.azure.yaml'
+        containers: 'agunuworld/angular-app:$(tag)'
