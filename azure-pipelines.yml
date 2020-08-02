@@ -56,6 +56,6 @@ stages:
       inputs:
         action: 'deploy'
         kubernetesServiceConnection: 'azure-kuberntes-cluster-service-connection'
-        namespace: 'agunuworld44'
+        namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/deployment.azure.yaml'
         containers: 'agunuworld/angular-app:$(tag)'
