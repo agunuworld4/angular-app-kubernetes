@@ -23,7 +23,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'docker-public-hub-registory-connection'
+        containerRegistry: 'docker-public-repository-connection'
         repository: 'agunuworld/angular-app'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
@@ -55,7 +55,7 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'kubernetes-service-connection-on-azure'
-        namespace: 'default'
+        kubernetesServiceConnection: 'kubernetes-connection-today'
+        namespace: 'angularname'
         manifests: '$(System.ArtifactsDirectory)/deployment.azure.yaml'
         containers: 'agunuworld/angular-app:$(tag)'
